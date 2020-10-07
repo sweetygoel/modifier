@@ -1,0 +1,13 @@
+contract infoFeed{
+function info()payable returns(uint ret)
+{
+return 42;
+
+contract Consumer{
+infoFeed feed;
+function setFeed(address addr){
+feed=infoFeed(addr);}
+function callFeed()
+{
+feed.info.value(10).gas(800)();}
+}
